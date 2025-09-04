@@ -1,7 +1,6 @@
 FROM python:3-slim
-WORKDIR /programas/api-employees
-RUN pip3 install "fastapi[standard]"
-RUN pip3 install pydantic
-RUN pip3 install mysql-connector-python
+WORKDIR /programas/api-students
+RUN pip3 install flask
 COPY . .
-CMD ["fastapi", "run", "./main.py", "--port", "8000"]
+RUN python3 db.py
+CMD [ "python3", "./app.py" ]
